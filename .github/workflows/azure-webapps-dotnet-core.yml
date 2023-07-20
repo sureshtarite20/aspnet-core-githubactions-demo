@@ -3,7 +3,7 @@ name: Build and deploy ASP.Net Core app to an Azure Web App
 
 
 env:
-  AZURE_WEBAPP_NAME: dotnetwebapp001    # set this to the name of your Azure Web App
+  AZURE_WEBAPP_NAME: azbicep-dev-eus-asp020             #dotnetwebapp001(pa)    # set this to the name of your Azure Web App
   AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
   DOTNET_VERSION: '7.0'                 # set this to the .NET Core version to use
 
@@ -62,7 +62,8 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: .net-app
-
+          
+      
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
