@@ -6,7 +6,7 @@ name: Build and deploy ASP app to Azure Web App - azbicep-dev-eus-asp020
 on:
   push:
     branches:
-      - main
+      - develop
   workflow_dispatch:
 
 jobs:
@@ -38,7 +38,7 @@ jobs:
     runs-on: windows-latest
     needs: build
     environment:
-      name: 'Production'
+      name: 'develop'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
@@ -52,6 +52,6 @@ jobs:
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'azbicep-dev-eus-asp020'
-          slot-name: 'Production'
+          slot-name: 'develop'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_65846522D5324F329408EED21684F7AD }}
           package: .
