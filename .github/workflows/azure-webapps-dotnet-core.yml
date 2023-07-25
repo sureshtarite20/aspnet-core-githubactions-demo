@@ -15,7 +15,8 @@ permissions:
   contents: read
 
 jobs:
-  build:
+  build-App:
+    name: Build-App
     runs-on: ubuntu-latest
 
     steps:
@@ -47,7 +48,8 @@ jobs:
           name: .net-app
           path: ${{env.DOTNET_ROOT}}/myapp
 
-  deploy:
+  deployToDev:
+    name: Deploy To Dev
     permissions:
       contents: none
     runs-on: ubuntu-latest
