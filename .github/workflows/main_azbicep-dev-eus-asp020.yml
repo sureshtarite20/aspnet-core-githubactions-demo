@@ -52,7 +52,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'azbicep-dev-eus-asp020'
+          app-name: 'azbicep-prd-eus-webapp01'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_65846522D5324F329408EED21684F7AD }}
+          publish-profile: ${{ secrets.ASP_CORE_WEB01_PUBLISH_PROFILE_PRD001 }}
           package: .
