@@ -35,7 +35,9 @@ jobs:
             ${{ runner.os }}-nuget-
 
       - name: Build with dotnet
-        run: dotnet build --configuration Release
+        run: |
+          dotnet restore
+          dotnet build --configuration Release
         # working-directory: src/
 
       - name: dotnet publish
